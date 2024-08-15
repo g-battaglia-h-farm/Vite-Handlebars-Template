@@ -1,0 +1,10 @@
+/* Utils */
+@import './utils/base.css';
+
+/* Partials */
+@import './partials/navbar.css';
+@import './partials/hero.css';
+@import './partials/footer.css';
+
+/* TYP */
+@import './partials/typ__hero.css';
