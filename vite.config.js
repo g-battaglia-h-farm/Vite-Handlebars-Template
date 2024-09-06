@@ -79,11 +79,6 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
                     main: resolve(ROOT_DIR, 'index.html'),
                     thankYou: resolve(ROOT_DIR, 'thank-you', 'index.html'),
                 },
-                output: {
-                    manualChunks: {
-                        swiper: ['swiper'],
-                    },
-                },
             },
             assetsDir: 'assets',
             sourcemap: false,
