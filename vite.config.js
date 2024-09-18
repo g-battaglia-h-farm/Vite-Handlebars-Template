@@ -4,7 +4,6 @@ import { resolve } from 'path';
 import handlebars from 'vite-plugin-handlebars';
 import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
-// PostCSS Plugins
 import postcssPresetsEnv from 'postcss-preset-env';
 
 const ROOT_DIR = resolve(__dirname, 'src');
@@ -54,19 +53,11 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         root: ROOT_DIR,
         base: basePublicPath,
         define: {
-            __BASE_URL__: JSON.stringify(basePublicPath),
-            __MODE__: JSON.stringify(mode),
             __BASE_API_URL__: JSON.stringify(getBaseAPIUrl(mode)),
-        },
-        resolve: {
-            alias: {
-                '@': resolve(__dirname, './src'),
-            },
         },
         css: {
             postcss: {
                 plugins: [
-                    // Transpile modern CSS to support older browsers
                     postcssPresetsEnv({ stage: 2, autoprefixer: true }),
                 ],
             },
@@ -84,9 +75,7 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
             sourcemap: false,
             minify: 'terser',
             terserOptions: {
-                // Disattiva il rinominamento delle variabili/funzioni
                 mangle: true,
-                // Disattiva la compressione
                 compress: true,
             },
             cssMinify: 'lightningcss',

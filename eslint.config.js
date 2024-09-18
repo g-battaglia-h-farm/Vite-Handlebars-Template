@@ -6,7 +6,10 @@ export default [
     {
         files: ['**/*.js'],
         languageOptions: {
-            globals: globals.browser,
+            globals: {
+                ...globals.commonjs,
+                __BASE_API_URL__: 'readonly',
+            },
         },
     },
     {
